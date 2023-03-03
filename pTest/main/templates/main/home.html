@@ -1,1 +1,20 @@
 {% extends 'main/base.html' %}
+
+{% block content %}
+    <table class="table table-hover">
+        <thead>
+            <th scope="col">#</th>
+            <th scope="col">List Name</th>
+            <th scope="col">Number of Items</th>
+        </thead>
+        <tbody>
+        {% for list in lists%}
+            <tr>
+                <td>{{list.id}}</td>
+                <td>{{list.name}}</td>
+                <td>{{list.item_set.all.count}}</td>
+            </tr>
+        {% endfor %}
+        <tbody>
+    </table>
+{% endblock%}
